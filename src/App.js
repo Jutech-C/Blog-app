@@ -1,24 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./component/header";
+import Menus from "./component/menu"
+import {Route,Routes} from "react-router"
+import AllWork from "./component/allWork";
+import Post from "./component/post";
+import { useState} from "react";
+import { useNavigate } from "react-router-dom"
+import BlogPost from "./component/blogPost";
+import About from "./component/about";
+import Contact from "./component/contact";
 
 function App() {
+const [blog,setBlog]=useState([])
+const [loading,setisloading]=useState(false)
+
+const navigate=useNavigate()
+
+
+//Post a blog
+function handleOnAddmeetup (meetupData){
+  setisloading(true)
+  fetch(
+      "https://jsonplaceholder.typicode.com/posts",
+       {
+           method:"POST",
+           body:JSON.stringify(meetupData),
+           headers:{
+               "Content-Type":"application/json"
+           },
+          })
+          .then((response) => response.json())
+  .then((json) =>{
+    setisloading(false)
+    setBlog((data) => [...data,json])
+    
+  }) 
+  .catch((err) =>{
+    console.log(err)
+  })
+ .then(()=>{
+            navigate("/")
+        })
+      
+     }
+   
+//Deleting a blog
+function onDelete(id){
+  fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,
+  {
+    method:"DELETE",
+    
+  })
+  .then((res)=>{
+    if(res.status!==200){
+      return
+    }else{
+      setBlog(blog.filter((data,index) =>{
+        return   index !== id 
+         }))
+    }
+  })
+     .catch((err) =>{
+       console.log(err)
+     })
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+   <Routes>
+   <Route path="/" element={<AllWork 
+  blogs={blog} 
+  onDelete={onDelete}
+  loading={loading}
+    />} />
+     <Route path="/header" element={<Header />}  />
+     <Route path="/menu" element={<Menus 
+       
+     />}/>
+     <Route path="/post" element={<Post />}/>
+     <Route path="/blogPost" element={<BlogPost  onAddMeetup={handleOnAddmeetup}/>} />
+     <Route path="/about" element={<About />} />
+     <Route path="/contact" element={<Contact />} />
+   </Routes>
+   </div>
   );
 }
 
