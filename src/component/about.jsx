@@ -13,7 +13,7 @@ export default function About(){
         <div  style={{width:600}} >
         <h1>ABOUT US</h1> 
         <p>This is a Photography blog with the intent of displaying photos ranging from Nature,
-        Love,Cosmetics,Sports,Modeling categories.If you really Love any of those categories, do well to add your own photo providing the
+        Love,Cosmetics,Sports and Modeling categories.If you really Love any of those categories, do well to add your own photo providing the
         category,the photo itself and a brief description of what inspired you to take such photo
         which you would love the world to see.I hope you love it just as i do.....Happy viewing!
         </p>

@@ -3,8 +3,8 @@ import Menus from "./component/menu"
 import {Route,Routes} from "react-router"
 import AllWork from "./component/allWork";
 import Post from "./component/post";
-import { useState} from "react";
-import { useNavigate } from "react-router-dom"
+import {useState} from "react";
+import {useNavigate} from "react-router-dom"
 import BlogPost from "./component/blogPost";
 import About from "./component/about";
 import Contact from "./component/contact";
@@ -16,7 +16,7 @@ const [loading,setisloading]=useState(false)
 const navigate=useNavigate()
 
 
-//Post a blog
+//make a blogPost
 function handleOnAddmeetup (meetupData){
   setisloading(true)
   fetch(
@@ -64,6 +64,8 @@ function onDelete(id){
      })
     }
 
+   
+    
   return (
     <div>
    <Routes>
@@ -71,6 +73,7 @@ function onDelete(id){
   blogs={blog} 
   onDelete={onDelete}
   loading={loading}
+ 
     />} />
      <Route path="/header" element={<Header />}  />
      <Route path="/menu" element={<Menus 

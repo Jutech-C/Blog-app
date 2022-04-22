@@ -1,10 +1,13 @@
 import Header from "./header";
 import Menus from "./menu"
-import {Container} from "semantic-ui-react"
+// import { useState } from "react"
+import {Button, Container,Message} from "semantic-ui-react"
 import Post from "./post"
 import Footer from "./footer";
 
 export default function AllWork({blogs,loading,onDelete}){
+
+    // const [quote,setQuote]=useState([])
 
 const postResults=blogs.map(function(blog,index) {
     return(
@@ -23,6 +26,18 @@ const postResults=blogs.map(function(blog,index) {
 function handleDelete(id){
     onDelete(id)
 }
+ // Quote Api 
+//  function Quote(){
+//     fetch("https://type.fit/api/quotes")
+//     .then(function(res){
+//       return res.json()
+//     }).then(
+//       function(data){
+//         setQuote(data)
+//       }
+//     )
+//  }
+
 
     return(
         <div style={{position:"relative",minHeight:700}}>
@@ -35,7 +50,12 @@ function handleDelete(id){
 
    </Container>
    <br /><br /> <br /> <br /> <br />
-
+  {/* <Message>
+  <Button onClick={Quote} color="red">Quotes</Button>
+  <p>{quote}</p>
+  </Message>
+     */}
+  
    <Footer />
         </div>
     )
