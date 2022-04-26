@@ -1,15 +1,16 @@
 import { React, useState } from "react"
-import { Menu, Dropdown, Input, Image, Form, Grid, Segment } from "semantic-ui-react"
+import { Menu, Dropdown, Input, Form } from "semantic-ui-react"
 import { Link } from "react-router-dom"
 import Photo from "./photo.jpg"
 import Nature from "./nature.jpg"
 import Love from "./love.jpg"
 import Fashion from "./fashion.jpg"
-
+import "../App.css"
 
 
 export default function Menus({ }) {
 
+    const [showLinks, setShowlinks] = useState(true)
 
     const [image, setImage] = useState("")
     const [clientId, setClientId] = useState("ih-9EtA6bO2ut30EtZoSE_4H1M2GbHo_LcXADw-nshE")
@@ -46,12 +47,19 @@ export default function Menus({ }) {
 
     return (
         <div>
-            <Menu inverted style={{ marginTop: 20 }}>
-                <Menu.Item as={Link} to="/" name="Home" />
-                <Menu.Item as={Link} to="/about" name="About" />
-                <Menu.Item as={Link} to="/contact" name="Contact" />
-                <Dropdown item text="Pages" >
-                    <Dropdown.Menu>
+
+
+
+            <Menu className="menus" inverted style={{ marginTop: 20 }}>
+
+
+
+                <Menu.Item className="menuItem" as={Link} to="/" name="Home" />
+                <Menu.Item className="menuItem" as={Link} to="/about" name="About" />
+                <Menu.Item className="menuItem" as={Link} to="/contact" name="Contact" />
+                <Dropdown item text="Menu" className="dropdown" >
+
+                    <Dropdown.Menu  >
                         <Dropdown.Item as={Link} to="/" text="Home" />
                         <Dropdown.Item as={Link} to="/about" text="About" />
                         <Dropdown.Item text="Contact" as={Link} to="/contact" />
@@ -68,68 +76,66 @@ export default function Menus({ }) {
 
             </Menu>
             {loading && <p>Loading...</p>}
-            <div style={{ position: "relative", marginLeft: 10,marginRight: 10, padding:5}}>
+            <div className="searchimg" >
                 {result.map((photo) => (
-                    <Image style={{ width: 900, height: 600 }} src={photo.urls.small} />
+                    <img src={photo.urls.small} />
 
                 ))}
             </div>
-           <br></br>
-            <div style={{ position: "relative", marginLeft: 10, marginRight: 50}}>
-                
-                            <h1>Photography</h1>
-                            <Image src={Photo} style={{ width: 900, height: 600 }} />
-                            <span style={{ display: "flex", padding: 2 }}>
+            <br></br>
+            <div className="menucontent">
 
-                                <p style={{ width: 900 }}>{showLess1 ? `${desc1.slice(0, length)}...` : desc1}</p>
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={() => setShowLess1(!showLess1)}>
-                                    {showLess1 ? " Read More" : "Less"}</a>
-                            </span>
-                      
+                <h1>Photography</h1>
+                <img src={Photo} />
+                <span style={{ display: "flex", padding: 2 }}>
+
+                    <p style={{ width: 900 }}>{showLess1 ? `${desc1.slice(0, length)}...` : desc1}</p>
+                    <a onClick={() => setShowLess1(!showLess1)}>
+                        {showLess1 ? " Read More" : "Less"}</a>
+                </span>
+
             </div>
 
-            <div style={{ position: "relative", marginLeft: 10, marginRight: 10 }}>
+            <div className="menucontent">
 
-                
+                <h1>Fashion</h1>
+                <img src={Fashion} />
+                <span style={{ display: "flex", padding: 2 }}>
 
-                            <h1>Fashion</h1>
-                            <Image src={Fashion} style={{ width: 900, height: 600 }} />
-                            <span style={{ display: "flex", padding: 2 }}>
+                    <p style={{ width: 900 }}>{showLess2 ? `${desc2.slice(0, length)}...` : desc2}</p>
+                    <a onClick={() => setShowLess2(!showLess2)}>
+                        {showLess2 ? " Read More" : "Less"}</a>
+                </span>
 
-                                <p style={{ width: 900 }}>{showLess2 ? `${desc2.slice(0, length)}...` : desc2}</p>
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={() => setShowLess2(!showLess2)}>
-                                    {showLess2 ? " Read More" : "Less"}</a>
-                            </span>
-                   
             </div>
 
-            <div style={{ position: "relative", marginLeft: 10, marginRight: 10 }}>
+            <div className="menucontent">
 
-               
-                            <h1>Love</h1>
-                            <Image src={Love} style={{ width: 900, height: 600 }} />
-                            <span style={{ display: "flex", padding: 2 }}>
 
-                                <p style={{ width: 900 }}>{showLess3 ? `${desc3.slice(0, length)}...` : desc3}</p>
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={() => setShowLess3(!showLess3)}>
-                                    {showLess3 ? " Read More" : "Less"}</a>
-                            </span>
-                     
+                <h1>Love</h1>
+                <img src={Love} />
+                <span style={{ display: "flex", padding: 2 }}>
+
+                    <p style={{ width: 900 }}>{showLess3 ? `${desc3.slice(0, length)}...` : desc3}</p>
+                    <a onClick={() => setShowLess3(!showLess3)}>
+                        {showLess3 ? " Read More" : "Less"}</a>
+                </span>
+
             </div>
 
-            <div style={{ position: "relative", marginLeft: 10, marginRight: 10 }}>
+            <div className="menucontent">
 
-                
 
-                            <h1>Nature</h1>
-                            <Image src={Nature} style={{ width: 900, height: 600 }} />
-                            <span style={{ display: "flex", padding: 2 }}>
 
-                                <p style={{ width: 900 }}>{showLess4 ? `${desc4.slice(0, length)}...` : desc4}  </p>
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={() => setShowLess4(!showLess4)}>
-                                    {showLess4 ? " Read More" : "Less"}</a>
-                            </span>
-                  
+                <h1>Nature</h1>
+                <img src={Nature} />
+                <span style={{ display: "flex", padding: 2 }}>
+
+                    <p style={{ width: 900 }}>{showLess4 ? `${desc4.slice(0, length)}...` : desc4}  </p>
+                    <a onClick={() => setShowLess4(!showLess4)}>
+                        {showLess4 ? " Read More" : "Less"}</a>
+                </span>
+
             </div>
 
         </div>

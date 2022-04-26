@@ -1,38 +1,157 @@
-.App {
-  text-align: center;
+.App{
+  width:100vw;
+  height:100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  margin:0;
+  padding:0
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menucontent{
+  position: relative;
+   margin-left: 10;
+    margin-right: 10;
+    align-items:center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.menucontent img{
+  width: 900px;
+  height: 600px 
+}
+.menucontent a{
+  color: blue;
+   cursor: pointer
+}
+.menucontent span{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+   padding: 2
+}   
+.photoblog{
+  margin-left:-40px ;
 }
 
-.App-link {
-  color: #61dafb;
+.photomedia{
+  font-size: 40px;
+  margin-left: -82px;
+}
+.forms .inputs{
+  width:700px;
+  
+}
+.menus .dropdown{
+  display: none !important;
+
+}
+.post{
+  position: relative;
+  margin-left:10;
+  margin-right:10
+}
+.post img{
+  width: 900;
+   height: 600
+}
+.searchimg{
+  position: relative;
+   margin-left: 10;
+   margin-right: 10;
+  padding:5
+}
+.searchimg img{
+  width: 900px;
+  height: 600px 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media only screen and (max-width:640px){
+
+ .menus .menuItem{
+display: none !important;
+
+}
+.menus .dropdown{
+  display:flex !important
+}
+
+
+}
+
+@media only screen and (max-width:603px){
+  .header{
+    width: 500px;
   }
-  to {
-    transform: rotate(360deg);
+  .header .socials{
+font-size: 11px;
+margin-top:-20px
   }
+  .header .photoblog{
+    font-size: 15px;
+    margin-left: -20px;
+      }
+      .header .photomedia{
+        font-size:35px;
+        margin-left: -60px;
+      }
+      .header .posts{
+        margin-top:10px;
+        margin-right: -80px;
+      }
+      .header .posts button{
+       font-size: 12px;
+       
+      }
+      .menucontent img{
+        width: 550px;
+        height: 370px; 
+        position: flex;
+
+      }
+      .searchimg img{
+        width: 550px;
+        height: 370px 
+      }
+
+}
+@media only screen and (max-width:380px){
+   
+  body{
+    margin-top: -40px;
+  }
+  .menucontent img{
+    width: 320px;
+    height: 280px 
+  }
+  .header{
+    width: 380px;
+  }
+  .header .socials{
+font-size: 7px;
+margin-top:-20px
+  }
+  .header .photoblog{
+font-size: 13px;
+margin-left: -18px;
+  }
+  .header .photomedia{
+    font-size:32px;
+    margin-left: -53px;
+  }
+  .header .posts{
+    margin-top:14px;
+    margin-right: 4px;
+
+  }
+  .header .posts button{
+   font-size: 9px;
+  }
+  .forms .inputs{
+    width:340px
+  }
+  .post img{
+    width: 320px;
+     height: 280px;
+     
+  }
+  .searchimg img{
+    width: 320px;
+    height: 280px
+  }
+  
 }

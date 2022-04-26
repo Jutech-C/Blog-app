@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom"
 import BlogPost from "./component/blogPost";
 import About from "./component/about";
 import Contact from "./component/contact";
-import {useMediaQuery} from "react-responsive"
+
 
 function App() {
 
@@ -81,9 +81,7 @@ function App() {
 
         />} />
         <Route path="/header" element={<Header />} />
-        <Route path="/menu" element={<Menus
-
-        />} />
+        <Route path="/menu" element={<Menus />} />
         <Route path="/post" element={<Post />} />
         <Route path="/blogPost" element={<BlogPost onAddMeetup={handleOnAddmeetup} />} />
         <Route path="/about" element={<About />} />

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Form, TextArea, Button, Container } from "semantic-ui-react"
-
+import "../App.css"
 
 export default function BlogPost({ onAddMeetup }) {
 
@@ -34,11 +34,11 @@ export default function BlogPost({ onAddMeetup }) {
     return (
         <div >
             <Container >
-                <h1 style={{ marginTop: 20 }}>Make a Post</h1>
-                <Form style={{ marginTop: 20 }} onSubmit={submittedHandler} >
-                    <Form.Input onChange={handleCategory} value={Category} label="Category" width={9} />
-                    <Form.Input type="url" onChange={handleImage} value={Image} label="Image URL" width={9} />
-                    <Form.Input onChange={handleDesc} value={Desc} control={TextArea} label="Description/Inspiration" width={9} />
+                <h1 style={{ marginTop: 50 }}>Make a Post</h1>
+                <Form  className="forms" style={{ marginTop: 20 }} onSubmit={submittedHandler} >
+                    <Form.Input className="inputs" onChange={handleCategory} value={Category} label="Category"  />
+                    <Form.Input className="inputs"  type="url" onChange={handleImage} value={Image} label="Image URL"  />
+                    <Form.Input className="inputs"  onChange={handleDesc} value={Desc} control={TextArea} label="Description/Inspiration"  />
                     <Button color="blue" content="Submit" />
                 </Form>
 

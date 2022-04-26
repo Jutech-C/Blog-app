@@ -1,5 +1,6 @@
 import { useState } from "react"
-import { Button, Image, Segment, Grid, Container } from "semantic-ui-react"
+import { Button, Image } from "semantic-ui-react"
+import "../App.css"
 
 export default function Post({ category, id, image, desc, handleDelete }) {
 
@@ -15,13 +16,13 @@ export default function Post({ category, id, image, desc, handleDelete }) {
 
 
   return (
-    <div style={{ position: "relative",marginLeft:10,marginRight:10}}>
+    <div className="post" >
 
 
       
 
             <h1>{category}</h1>
-            <Image style={{ width: 900, height: 600 }} src={image} size="large" fluid />
+            <img  src={image} size="large" fluid />
             <span style={{ display: "flex", padding: 2 }}>
               <p>{showLess ? `${desc.slice(0, length)}...` : desc}</p>
               <a style={{ color: "blue", cursor: "pointer" }} onClick={() => setShowLess(!showLess)}>
